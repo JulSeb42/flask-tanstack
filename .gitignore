@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+__pycache__
+.tanstack
+.venv
+.env
+.env.local
+OLD
