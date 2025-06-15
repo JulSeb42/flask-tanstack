@@ -13,11 +13,13 @@ export const UsersList: FC<IUsersList> = ({ users, setUsers }) => {
 	const [errorMessage, setErrorMessage] = useState(undefined as any)
 
 	useEffect(() => {
-		userService
-			.allUsers()
-			.then(res => setUsers(res.data))
-			.catch(err => setErrorMessage(err.response.data.message))
-			.finally(() => setIsLoading(false))
+		if (!users?.length) {
+			userService
+				.allUsers()
+				.then(res => setUsers(res.data))
+				.catch(err => setErrorMessage(err.response.data.message))
+				.finally(() => setIsLoading(false))
+		}
 	}, [users])
 
 	if (isLoading) return <p>Loading...</p>

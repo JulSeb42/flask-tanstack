@@ -5,6 +5,7 @@ import os
 from flask_cors import CORS
 from utils.data import base_api_url
 from routes.users import users_bp
+from routes.auth import auth_bp
 
 load_dotenv()
 flask_app = os.getenv("FLASK_APP")
@@ -26,3 +27,4 @@ def index():
 
 # Routes
 app.register_blueprint(users_bp)
+app.register_blueprint(auth_bp)

@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from bcrypt import gensalt, hashpw
 from bcrypt import hashpw, gensalt
 from utils.data import base_api_url
-from server.utils.connect_db import users
+from utils.connect_db import users
 from models.User import User
 
 users_bp = Blueprint("users", __name__)

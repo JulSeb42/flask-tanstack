@@ -2,6 +2,7 @@ import { StrictMode } from "react"
 import ReactDOM from "react-dom/client"
 import { RouterProvider, createRouter } from "@tanstack/react-router"
 import { ToastContainer } from "react-toastify"
+import { AuthProviderWrapper } from "context"
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen"
@@ -31,8 +32,10 @@ if (rootElement && !rootElement.innerHTML) {
 	const root = ReactDOM.createRoot(rootElement)
 	root.render(
 		<StrictMode>
-			<RouterProvider router={router} />
-			<ToastContainer position="bottom-right" />
+			<AuthProviderWrapper>
+				<RouterProvider router={router} />
+				<ToastContainer position="bottom-right" />
+			</AuthProviderWrapper>
 		</StrictMode>,
 	)
 }

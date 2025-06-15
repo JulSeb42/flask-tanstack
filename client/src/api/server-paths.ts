@@ -8,18 +8,18 @@ const SERVER_PATH_ROOTS = {
 }
 
 export const SERVER_PATHS = {
-	// AUTH: {
-	// 	ROOT: SERVER_PATH_ROOTS.AUTH,
-	// 	SIGNUP: "/signup",
-	// 	LOGIN: "/login",
-	// 	LOGGED_IN: "/loggedin",
-	// 	VERIFY: (args = [":id", ":token"]) => {
-	// 		const joinedArgs = args
-	// 			.map(arg => (arg[0] === "/" ? arg.replace("/", "") : arg))
-	// 			.join("/")
+	AUTH: {
+		ROOT: SERVER_PATH_ROOTS.AUTH,
+		SIGNUP: "/signup",
+		// LOGIN: "/login",
+		// LOGGED_IN: "/loggedin",
+		// VERIFY: (args = [":id", ":token"]) => {
+		// 	const joinedArgs = args
+		// 		.map(arg => (arg[0] === "/" ? arg.replace("/", "") : arg))
+		// 		.join("/")
 
-	// 		return `/verify/${joinedArgs}`
-	// 	},
+		// 	return `/verify/${joinedArgs}`
+	},
 	// 	FORGOT_PASSWORD: "/forgot-password",
 	// 	RESET_PASSWORD: "/reset-password",
 	// },

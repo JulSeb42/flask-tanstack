@@ -1,24 +1,18 @@
-import {
-	useState,
-	type ChangeEvent,
-	type Dispatch,
-	type FC,
-	type FormEvent,
-	type SetStateAction,
-} from "react"
+import { useState, type ChangeEvent, type FormEvent } from "react"
 import { toast } from "react-toastify"
-import { userService } from "api"
-import type { User } from "types"
+import { authService } from "api"
+import { useAuthContext } from "context"
 
 const INPUT_CLASSES =
 	"px-2 border-1 border-gray-200 focus:border-blue-500 border-solid rounded-sm outline-none"
 
-export const NewUser: FC<INewUser> = ({ users, setUsers }) => {
+export const Signup = () => {
 	const [inputs, setInputs] = useState({
 		fullName: "Julien Sebag",
 		email: "placeb78@hotmail.com",
 		password: "Password42",
 	})
+	const { setToken, setUser, loginUser } = useAuthContext()
 
 	const handleInputs = (e: ChangeEvent<HTMLInputElement>) =>
 		setInputs({ ...inputs, [e.target.id]: e.target.value })
@@ -26,17 +20,17 @@ export const NewUser: FC<INewUser> = ({ users, setUsers }) => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
-		userService
-			.newUser(inputs)
+		authService
+			.signup(inputs)
 			.then(res => {
-				toast.success(`You just created ${inputs.fullName}`)
-				setUsers([...users, res.data])
+				loginUser(res.data.authToken)
+				toast("User is logged in")
 			})
 			.catch(err => console.log(err))
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="flex gap-2">
+		<form className="flex gap-2" onSubmit={handleSubmit}>
 			<input
 				placeholder="Full name"
 				value={inputs.fullName}
@@ -59,12 +53,7 @@ export const NewUser: FC<INewUser> = ({ users, setUsers }) => {
 				className={INPUT_CLASSES}
 			/>
 
-			<button type="submit">Create user</button>
+			<button type="submit">Signup</button>
 		</form>
 	)
-}
-
-interface INewUser {
-	users: User[]
-	setUsers: Dispatch<SetStateAction<User[]>>
 }
