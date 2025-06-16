@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
 from bcrypt import gensalt, hashpw
-from bcrypt import hashpw, gensalt
 from utils.data import base_api_url
 from utils.connect_db import users
 from models.User import User
@@ -13,11 +12,7 @@ def all_users():
     res = users.find()
     all_users: User = []
     for user in res:
-        user["password"] = str(user["password"])
-        salt = gensalt(10)
         user["_id"] = str(user["_id"])
-        hashed_pw = hashpw(user["password"].encode("utf-8"), salt)
-        user["password"] = hashed_pw.decode("utf-8")
         all_users.append(user)
     res = jsonify(all_users)
     res.headers.add("Access-Control-Allow-Origin", "*")

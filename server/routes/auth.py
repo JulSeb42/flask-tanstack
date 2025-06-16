@@ -48,6 +48,5 @@ def is_logged_in():
     if bearer[0] == "Bearer":
         token = bearer[1]
         auth_token = jwt.decode(token, key=token_secret, algorithms=["HS256"])
-        print(auth_token["user"])
         return auth_token["user"], 201
     return None, 500

@@ -1,5 +1,4 @@
 from flask import Flask
-from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 from flask_cors import CORS
@@ -14,10 +13,6 @@ flask_env = os.getenv("FLASK_ENV")
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 CORS(app, resources={r"/users/*": {"origins": "*"}})
-
-client = MongoClient("localhost", 27017)
-MongoClient._connect(client)
-users = client.flask_tanstack.users
 
 
 @app.route(f"{base_api_url}/", methods=["GET"])
