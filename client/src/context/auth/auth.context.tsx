@@ -75,7 +75,7 @@ export const AuthProviderWrapper: FC<IAuthProviderWrapper> = ({ children }) => {
 	)
 }
 
-export const useAuthContext = () => use(AuthContext) as IAuthContext
+export const useAuth = () => use(AuthContext) as IAuthContext
 
 interface IAuthProviderWrapper {
 	children: Children

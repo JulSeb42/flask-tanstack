@@ -25,6 +25,7 @@ def signup():
         "fullName": data["fullName"],
         "email": data["email"],
         "password": str(hashed_pw.decode("utf-8").removeprefix("b")),
+        "role": "user",
     }
     users.insert_one(created_user)
     created_user["_id"] = str(created_user["_id"])

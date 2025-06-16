@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import "tailwindcss";
+
+@theme {
+	--color-background: var(--color-white);
+	--color-font: var(--color-black);
+
+	--font-family-body: "Lato", sans-serif;
+
+	--font-weight-thin: 100;
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+	--font-weight-black: 900;
+
+	--line-height-body: 1.5;
+
+	--admin-nav-size: 200px;
+
+	--overlay-gradient-black: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(0, 0, 0, 0.56) 100%
+	);
+
+	/*====================== Colors hover ======================*/
+
+	--color-red-hover-default: var(--color-red-500);
+	--color-red-hover-hover: var(--color-red-300);
+	--color-red-hover-active: var(--color-red-600);
+
+	--color-orange-hover-default: var(--color-orange-500);
+	--color-orange-hover-hover: var(--color-orange-300);
+	--color-orange-hover-active: var(--color-orange-600);
+
+	--color-amber-hover-default: var(--color-amber-500);
+	--color-amber-hover-hover: var(--color-amber-300);
+	--color-amber-hover-active: var(--color-amber-600);
+
+	--color-yellow-hover-default: var(--color-yellow-500);
+	--color-yellow-hover-hover: var(--color-yellow-300);
+	--color-yellow-hover-active: var(--color-yellow-600);
+
+	--color-lime-hover-default: var(--color-lime-500);
+	--color-lime-hover-hover: var(--color-lime-300);
+	--color-lime-hover-active: var(--color-lime-600);
+
+	--color-green-hover-default: var(--color-green-500);
+	--color-green-hover-hover: var(--color-green-300);
+	--color-green-hover-active: var(--color-green-600);
+
+	--color-emerald-hover-default: var(--color-emerald-500);
+	--color-emerald-hover-hover: var(--color-emerald-300);
+	--color-emerald-hover-active: var(--color-emerald-600);
+
+	--color-teal-hover-default: var(--color-teal-500);
+	--color-teal-hover-hover: var(--color-teal-300);
+	--color-teal-hover-active: var(--color-teal-600);
+
+	--color-cyan-hover-default: var(--color-cyan-500);
+	--color-cyan-hover-hover: var(--color-cyan-300);
+	--color-cyan-hover-active: var(--color-cyan-600);
+
+	--color-sky-hover-default: var(--color-sky-500);
+	--color-sky-hover-hover: var(--color-sky-300);
+	--color-sky-hover-active: var(--color-sky-600);
+
+	--color-blue-hover-default: var(--color-blue-500);
+	--color-blue-hover-hover: var(--color-blue-300);
+	--color-blue-hover-active: var(--color-blue-600);
+
+	--color-indigo-hover-default: var(--color-indigo-500);
+	--color-indigo-hover-hover: var(--color-indigo-300);
+	--color-indigo-hover-active: var(--color-indigo-600);
+
+	--color-violet-hover-default: var(--color-violet-500);
+	--color-violet-hover-hover: var(--color-violet-300);
+	--color-violet-hover-active: var(--color-violet-600);
+
+	--color-purple-hover-default: var(--color-purple-500);
+	--color-purple-hover-hover: var(--color-purple-300);
+	--color-purple-hover-active: var(--color-purple-600);
+
+	--color-fuchsia-hover-default: var(--color-fuchsia-500);
+	--color-fuchsia-hover-hover: var(--color-fuchsia-300);
+	--color-fuchsia-hover-active: var(--color-fuchsia-600);
+
+	--color-pink-hover-default: var(--color-pink-500);
+	--color-pink-hover-hover: var(--color-pink-300);
+	--color-pink-hover-active: var(--color-pink-600);
+
+	--color-rose-hover-default: var(--color-rose-500);
+	--color-rose-hover-hover: var(--color-rose-300);
+	--color-rose-hover-active: var(--color-rose-600);
+
+	--color-slate-hover-default: var(--color-slate-500);
+	--color-slate-hover-hover: var(--color-slate-300);
+	--color-slate-hover-active: var(--color-slate-600);
+
+	--color-white-hover-default: var(--color-white);
+	--color-white-hover-hover: var(--color-gray-300);
+	--color-white-hover-active: var(--color-gray-100);
+
+	/*====================== Colors hover ghost ======================*/
+
+	--color-red-ghost-hover-default: var(--color-red-50);
+	--color-red-ghost-hover-hover: var(--color-red-300);
+	--color-red-ghost-hover-active: var(--color-red-100);
+
+	--color-orange-ghost-hover-default: var(--color-orange-50);
+	--color-orange-ghost-hover-hover: var(--color-orange-300);
+	--color-orange-ghost-hover-active: var(--color-orange-100);
+
+	--color-amber-ghost-hover-default: var(--color-amber-50);
+	--color-amber-ghost-hover-hover: var(--color-amber-300);
+	--color-amber-ghost-hover-active: var(--color-amber-100);
+
+	--color-yellow-ghost-hover-default: var(--color-yellow-50);
+	--color-yellow-ghost-hover-hover: var(--color-yellow-300);
+	--color-yellow-ghost-hover-active: var(--color-yellow-100);
+
+	--color-lime-ghost-hover-default: var(--color-lime-50);
+	--color-lime-ghost-hover-hover: var(--color-lime-300);
+	--color-lime-ghost-hover-active: var(--color-lime-100);
+
+	--color-green-ghost-hover-default: var(--color-green-50);
+	--color-green-ghost-hover-hover: var(--color-green-300);
+	--color-green-ghost-hover-active: var(--color-green-100);
+
+	--color-emerald-ghost-hover-default: var(--color-emerald-50);
+	--color-emerald-ghost-hover-hover: var(--color-emerald-300);
+	--color-emerald-ghost-hover-active: var(--color-emerald-100);
+
+	--color-teal-ghost-hover-default: var(--color-teal-50);
+	--color-teal-ghost-hover-hover: var(--color-teal-300);
+	--color-teal-ghost-hover-active: var(--color-teal-100);
+
+	--color-cyan-ghost-hover-default: var(--color-cyan-50);
+	--color-cyan-ghost-hover-hover: var(--color-cyan-300);
+	--color-cyan-ghost-hover-active: var(--color-cyan-100);
+
+	--color-sky-ghost-hover-default: var(--color-sky-50);
+	--color-sky-ghost-hover-hover: var(--color-sky-300);
+	--color-sky-ghost-hover-active: var(--color-sky-100);
+
+	--color-blue-ghost-hover-default: var(--color-blue-50);
+	--color-blue-ghost-hover-hover: var(--color-blue-300);
+	--color-blue-ghost-hover-active: var(--color-blue-100);
+
+	--color-indigo-ghost-hover-default: var(--color-indigo-50);
+	--color-indigo-ghost-hover-hover: var(--color-indigo-300);
+	--color-indigo-ghost-hover-active: var(--color-indigo-100);
+
+	--color-violet-ghost-hover-default: var(--color-violet-50);
+	--color-violet-ghost-hover-hover: var(--color-violet-300);
+	--color-violet-ghost-hover-active: var(--color-violet-100);
+
+	--color-purple-ghost-hover-default: var(--color-purple-50);
+	--color-purple-ghost-hover-hover: var(--color-purple-300);
+	--color-purple-ghost-hover-active: var(--color-purple-100);
+
+	--color-fuchsia-ghost-hover-default: var(--color-fuchsia-50);
+	--color-fuchsia-ghost-hover-hover: var(--color-fuchsia-300);
+	--color-fuchsia-ghost-hover-active: var(--color-fuchsia-100);
+
+	--color-pink-ghost-hover-default: var(--color-pink-50);
+	--color-pink-ghost-hover-hover: var(--color-pink-300);
+	--color-pink-ghost-hover-active: var(--color-pink-100);
+
+	--color-rose-ghost-hover-default: var(--color-rose-50);
+	--color-rose-ghost-hover-hover: var(--color-rose-300);
+	--color-rose-ghost-hover-active: var(--color-rose-100);
+
+	--color-slate-ghost-hover-default: var(--color-slate-50);
+	--color-slate-ghost-hover-hover: var(--color-slate-300);
+	--color-slate-ghost-hover-active: var(--color-slate-100);
+
+	--color-white-ghost-hover-default: var(--color-white);
+	--color-white-ghost-hover-hover: var(--color-gray-100);
+	--color-white-ghost-hover-active: var(--color-gray-50);
+
+	/*====================== Colors hover transparent ======================*/
+
+	--color-red-transparent-hover-default: var(--color-red-500);
+	--color-red-transparent-hover-hover: var(--color-red-300);
+	--color-red-transparent-hover-active: var(--color-red-600);
+
+	--color-orange-transparent-hover-default: var(--color-orange-500);
+	--color-orange-transparent-hover-hover: var(--color-orange-300);
+	--color-orange-transparent-hover-active: var(--color-orange-600);
+
+	--color-amber-transparent-hover-default: var(--color-amber-500);
+	--color-amber-transparent-hover-hover: var(--color-amber-300);
+	--color-amber-transparent-hover-active: var(--color-amber-600);
+
+	--color-yellow-transparent-hover-default: var(--color-yellow-500);
+	--color-yellow-transparent-hover-hover: var(--color-yellow-300);
+	--color-yellow-transparent-hover-active: var(--color-yellow-600);
+
+	--color-lime-transparent-hover-default: var(--color-lime-500);
+	--color-lime-transparent-hover-hover: var(--color-lime-300);
+	--color-lime-transparent-hover-active: var(--color-lime-600);
+
+	--color-green-transparent-hover-default: var(--color-green-500);
+	--color-green-transparent-hover-hover: var(--color-green-300);
+	--color-green-transparent-hover-active: var(--color-green-600);
+
+	--color-emerald-transparent-hover-default: var(--color-emerald-500);
+	--color-emerald-transparent-hover-hover: var(--color-emerald-300);
+	--color-emerald-transparent-hover-active: var(--color-emerald-600);
+
+	--color-teal-transparent-hover-default: var(--color-teal-500);
+	--color-teal-transparent-hover-hover: var(--color-teal-300);
+	--color-teal-transparent-hover-active: var(--color-teal-600);
+
+	--color-cyan-transparent-hover-default: var(--color-cyan-500);
+	--color-cyan-transparent-hover-hover: var(--color-cyan-300);
+	--color-cyan-transparent-hover-active: var(--color-cyan-600);
+
+	--color-sky-transparent-hover-default: var(--color-sky-500);
+	--color-sky-transparent-hover-hover: var(--color-sky-300);
+	--color-sky-transparent-hover-active: var(--color-sky-600);
+
+	--color-blue-transparent-hover-default: var(--color-blue-500);
+	--color-blue-transparent-hover-hover: var(--color-blue-300);
+	--color-blue-transparent-hover-active: var(--color-blue-600);
+
+	--color-indigo-transparent-hover-default: var(--color-indigo-500);
+	--color-indigo-transparent-hover-hover: var(--color-indigo-300);
+	--color-indigo-transparent-hover-active: var(--color-indigo-600);
+
+	--color-violet-transparent-hover-default: var(--color-violet-500);
+	--color-violet-transparent-hover-hover: var(--color-violet-300);
+	--color-violet-transparent-hover-active: var(--color-violet-600);
+
+	--color-purple-transparent-hover-default: var(--color-purple-500);
+	--color-purple-transparent-hover-hover: var(--color-purple-300);
+	--color-purple-transparent-hover-active: var(--color-purple-600);
+
+	--color-fuchsia-transparent-hover-default: var(--color-fuchsia-500);
+	--color-fuchsia-transparent-hover-hover: var(--color-fuchsia-300);
+	--color-fuchsia-transparent-hover-active: var(--color-fuchsia-600);
+
+	--color-pink-transparent-hover-default: var(--color-pink-500);
+	--color-pink-transparent-hover-hover: var(--color-pink-300);
+	--color-pink-transparent-hover-active: var(--color-pink-600);
+
+	--color-rose-transparent-hover-default: var(--color-rose-500);
+	--color-rose-transparent-hover-hover: var(--color-rose-300);
+	--color-rose-transparent-hover-active: var(--color-rose-600);
+
+	--color-slate-transparent-hover-default: var(--color-slate-500);
+	--color-slate-transparent-hover-hover: var(--color-slate-300);
+	--color-slate-transparent-hover-active: var(--color-slate-600);
+
+	--color-white-transparent-hover-default: var(--color-white);
+	--color-white-transparent-hover-hover: var(--color-gray-100);
+	--color-white-transparent-hover-active: var(--color-gray-200);
+}
+
+html,
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: var(--color-background);
+	color: var(--color-font);
+	font-family: var(--font-family-body);
+	font-weight: var(--font-weight-regular);
+	line-height: var(--line-height-body);
+	position: relative;
+	overflow-x: hidden;
+	tab-size: 4;
+	width: 100%;
+	min-height: 100svh;
+	overflow-x: hidden;
+
+	&.dark {
+		--color-background: var(--color-black);
+		--color-font: var(--color-white);
+	}
+}
+
+a,
+button {
+	cursor: pointer;
+	transition: all 200ms ease;
+	align-self: flex-start;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+@layer utilities {
+	.lato-thin {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-thin);
+		font-style: normal;
+	}
+
+	.lato-light {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-light);
+		font-style: normal;
+	}
+
+	.lato-regular {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-regular);
+		font-style: normal;
+	}
+
+	.lato-bold {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-bold);
+		font-style: normal;
+	}
+
+	.lato-black {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-black);
+		font-style: normal;
+	}
+
+	.lato-thin-italic {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-thin);
+		font-style: italic;
+	}
+
+	.lato-light-italic {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-light);
+		font-style: italic;
+	}
+
+	.lato-regular-italic {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-regular);
+		font-style: italic;
+	}
+
+	.lato-bold-italic {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-bold);
+		font-style: italic;
+	}
+
+	.lato-black-italic {
+		font-family: var(--font-family-body);
+		font-weight: var(--font-weight-black);
+		font-style: italic;
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.load-spin {
+		animation: spin 1200ms linear infinite;
+	}
+
+	.border-b-current {
+		border-bottom-color: currentColor;
+	}
+
+	.gradient {
+		background: var(--overlay-gradient-black);
+	}
+}

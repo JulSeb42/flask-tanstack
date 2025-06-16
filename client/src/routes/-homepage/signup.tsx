@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react"
 import { toast } from "react-toastify"
 import { authService } from "api"
-import { useAuthContext } from "context"
+import { useAuth } from "context"
 
 const INPUT_CLASSES =
 	"px-2 border-1 border-gray-200 focus:border-blue-500 border-solid rounded-sm outline-none"
@@ -12,7 +12,7 @@ export const Signup = () => {
 		email: "placeb78@hotmail.com",
 		password: "Password42",
 	})
-	const { setToken, setUser, loginUser } = useAuthContext()
+	const { setToken, setUser, loginUser } = useAuth()
 
 	const handleInputs = (e: ChangeEvent<HTMLInputElement>) =>
 		setInputs({ ...inputs, [e.target.id]: e.target.value })

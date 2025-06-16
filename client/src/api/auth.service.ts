@@ -1,21 +1,38 @@
 import { http } from "./http-common"
-import { SERVER_PATHS } from "./server-paths"
-import type { User, ApiResponse } from "types"
+import { generateServerRoute } from "utils"
+import type { SERVER_PATHS } from "./server-paths"
+import type {
+	User,
+	ApiResponse,
+	SignupFormData,
+	LoggedInFormData,
+	LoginFormData,
+	ResetPasswordFormData,
+} from "types"
 
-const BASE_URL = "http://localhost:5005/api/auth"
+type PATHS = keyof typeof SERVER_PATHS.AUTH
+
+const generateRoute = (route: Exclude<PATHS, "ROOT">) =>
+	generateServerRoute("AUTH", route)
 
 class AuthService {
-	async signup(data: { fullName: string; email: string; password: string }) {
-		return http.post(`${BASE_URL}/signup`, data)
-	}
+	signup = async (data: SignupFormData): ApiResponse<User> =>
+		await http.post(generateRoute("SIGNUP"), data)
 
-	async login(data: { email: string; password: string }) {
-		return await http.post(`${BASE_URL}/login`, data)
-	}
+	login = async (data: LoginFormData): ApiResponse<User> =>
+		await http.post(generateRoute("LOGIN"), data)
 
-	async loggedIn(data: {}) {
-		return await http.get(`${BASE_URL}/loggedin`, data)
-	}
+	loggedIn = async (data: LoggedInFormData): ApiResponse<User> =>
+		await http.get(generateRoute("LOGGED_IN"), data)
+
+	verify = async (id: string, token: string) =>
+		await http.put(generateServerRoute("AUTH", "VERIFY", [id, token]))
+
+	forgotPassword = async (email: string) =>
+		await http.post(generateRoute("FORGOT_PASSWORD"), { email })
+
+	resetPassword = async (data: ResetPasswordFormData) =>
+		await http.put(generateRoute("RESET_PASSWORD"), data)
 }
 
 export const authService = new AuthService()
